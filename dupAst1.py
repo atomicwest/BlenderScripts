@@ -1,3 +1,5 @@
+#select object first then run
+
 import bpy
 import random
 import math
