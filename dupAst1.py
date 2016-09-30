@@ -1,4 +1,4 @@
-#select object first then run
+#select object first then run in script editor
 
 import bpy
 import random
