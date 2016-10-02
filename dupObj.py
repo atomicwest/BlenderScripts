@@ -16,7 +16,9 @@ for i in range(15):
     
     dup.location = (newX,newY,newZ)
     dup.rotation_euler = (newX, newY, newZ)
-    dup.scale = (newX+1, newY+1, newZ+1)
+    randScale = [-3,-2,-1,1,2,3]
+    dup.scale = (random.choice(randScale), random.choice(randScale), random.choice(randScale))
+    
     
     scene = bpy.context.scene
     scene.objects.link(dup)
