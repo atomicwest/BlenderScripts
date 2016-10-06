@@ -8,6 +8,7 @@ dupTemp = orig.copy()
 
 pos = obj.location
 sca = obj.scale
+# rot = obj.rotation_euler
 #print(pos[1])
 for i in range(8):
     num = "%04d"%(i+1)
@@ -19,6 +20,7 @@ for i in range(8):
 
     dup.location = (pos[0],newY,newZ)
     # dup.rotation_euler = (newX, newY, newZ)
+    # dup.rotation_euler = rot
     dup.scale = (sca[0]+i*(0.025), sca[1], sca[2])
 
     scene = bpy.context.scene
