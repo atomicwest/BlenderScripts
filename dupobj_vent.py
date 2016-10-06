@@ -7,18 +7,19 @@ orig = bpy.context.object.data
 dupTemp = orig.copy()
 
 pos = obj.location
-# sca = obj.scale
+sca = obj.scale
 #print(pos[1])
-for i in range(5):
-    num = "%04d"%i
+for i in range(8):
+    num = "%04d"%(i+1)
     newName = "%s%s" %(obj.name,num)
     dup = bpy.data.objects.new(newName, dupTemp)
 
-    newZ = pos[2] - i*(0.1)
+    newY = pos[1] + i*(0.06)
+    newZ = pos[2] - i*(0.12)
 
-    dup.location = (pos[0],pos[1],newZ)
+    dup.location = (pos[0],newY,newZ)
     # dup.rotation_euler = (newX, newY, newZ)
-    dup.scale = obj.scale
+    dup.scale = (sca[0]+i*(0.025), sca[1], sca[2])
 
     scene = bpy.context.scene
     scene.objects.link(dup)
