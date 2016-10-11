@@ -10,13 +10,13 @@ dupTemp = orig.copy()
 
 for i in range(15):
     num = "%04d"%i
-    newName = "%s%s" %(obj.name,num)
-    # newName = "Asteroid%s" %num
+    # newName = "%s%s" %(obj.name,num)
+    newName = "Asteroid%s" %num
     dup = bpy.data.objects.new(newName, dupTemp)
     
-    newX = math.ceil(random.uniform(-1,1)*25 + i)
-    newY = math.ceil(random.uniform(-1,1)*25 + i)
-    newZ = math.ceil(random.uniform(-1,1)*25 + i)
+    newX = math.ceil(random.uniform(-1,1)*25 + random.uniform(-1,1)*i)
+    newY = math.ceil(random.uniform(-1,1)*25 + random.uniform(-1,1)*i)
+    newZ = math.ceil(random.uniform(-1,1)*25 + random.uniform(-1,1)*i)
     
     dup.location = (newX,newY,newZ)
     dup.rotation_euler = (newX, newY, newZ)
