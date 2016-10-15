@@ -8,7 +8,7 @@ obj = bpy.context.object
 orig = bpy.context.object.data
 dupTemp = orig.copy()
 
-for i in range(15):
+for i in range(100):
     num = "%04d"%i
     # newName = "%s%s" %(obj.name,num)
     newName = "Asteroid%s" %num
@@ -16,11 +16,11 @@ for i in range(15):
     
     newX = math.ceil(random.uniform(-1,1)*25 + random.uniform(-1,1)*i)
     newY = math.ceil(random.uniform(-1,1)*25 + random.uniform(-1,1)*i)
-    newZ = math.ceil(random.uniform(-1,1)*25 + random.uniform(-1,1)*i)
+    newZ = math.ceil(random.uniform(-1,1)*25)
     
     dup.location = (newX,newY,newZ)
     dup.rotation_euler = (newX, newY, newZ)
-    randScale = [-3,-2,-4,4,2,3]
+    randScale = [-5,-3,-2,-4,4,2,3, 5]
     dup.scale = (random.choice(randScale), random.choice(randScale), random.choice(randScale))
     
     
