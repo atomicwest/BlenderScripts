@@ -9,8 +9,6 @@ dupTemp = orig.copy()
 
 all = bpy.data.objects
 
-i=0
-
 #this will look through all of the scene objects
 #and create a duplicate emission object at the 
 #center of any object whose name matches the conditional
@@ -28,4 +26,3 @@ for obj in all:
         scene.objects.link(dup)
         scene.update()
         
-        i+=1
