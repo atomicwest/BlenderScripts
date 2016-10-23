@@ -1,3 +1,9 @@
+#nonparticle method for hyperspace entry effect
+#create an icosphere and name it "star" something
+#make n many duplicates of the star object
+#this script will scale all of the stars uniformly
+#across however many frames when setframe is called
+
 import bpy
 import math
 
@@ -14,10 +20,6 @@ def setframe(frame, obj, grow):
     scal = obj.scale
     print(scal[0])
     bpy.context.scene.frame_set(frame)
-    #bpy.ops.transform.resize(value=(scal[0],scal[1]*grow, scal[2]))
-    #bpy.ops.transform.translate(value=obj.location)
-    #bpy.ops.transform.rotate(value=obj.orientation)
-    # create keyframe
     
     obj.scale[1] = obj.scale[1]*grow
     
