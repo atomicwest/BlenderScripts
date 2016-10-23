@@ -1,4 +1,4 @@
-#select object first then run in script editor
+#select the star object first then run in script editor
 
 import bpy
 import random
