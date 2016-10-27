@@ -43,7 +43,7 @@ def setloc(frame, obj, dist):
     bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
 
 def setrot(frame, obj, magnitude):
-    #hardcoded for y-axis
+
     rot = obj.rotation_euler
     print(rot)
     bpy.context.scene.frame_set(frame)
