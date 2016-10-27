@@ -43,14 +43,13 @@ def setloc(frame, obj, dist):
     bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
 
 def setrot(frame, obj, magnitude):
-
     rot = obj.rotation_euler
     print(rot)
     bpy.context.scene.frame_set(frame)
     
     rotX = obj.rotation_euler[0] + random.uniform(-1,1)*random.uniform(0,magnitude)
-    rotY = obj.rotation_euler[0] + random.uniform(-1,1)*random.uniform(0,magnitude)
-    rotZ = obj.rotation_euler[0] + random.uniform(-1,1)*random.uniform(0,magnitude)
+    rotY = obj.rotation_euler[1] + random.uniform(-1,1)*random.uniform(0,magnitude)
+    rotZ = obj.rotation_euler[2] + random.uniform(-1,1)*random.uniform(0,magnitude)
     
     obj.rotation_euler = (rotX, rotY, rotZ)
     bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
@@ -66,5 +65,7 @@ for obj in all:
 
     print(obj.name)
     #setloc(150,obj, 10000)
+    setloc(200, obj, 0)
+    setloc(1200, obj, 5)
     setrot(0,obj, 0)
-    setrot(250, obj, 45)
+    setrot(1200, obj, 2)
