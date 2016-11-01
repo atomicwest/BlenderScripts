@@ -64,7 +64,7 @@ for obj in all:
         continue
 
     print(obj.name)
-    #setloc(150,obj, 10000)
+    #setsize(150,obj, 20)
     setloc(200, obj, 0)
     setloc(1200, obj, 5)
     setrot(0,obj, 0)
