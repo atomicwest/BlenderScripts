@@ -1,6 +1,12 @@
 '''
 More generalized LocRotScale script
 
+Assuming you have a large set of objects with the same
+naming scheme, change the target variable to the name of
+the objects you want to animate. In this example, target
+is hardcoded to animate any mesh in the scene that has the
+string "Asteroid" in its name.
+
 The setloc function will keyframe the location of each
 matching object
 

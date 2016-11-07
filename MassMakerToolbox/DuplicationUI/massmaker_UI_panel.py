@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Mass Maker",
     "author": "Jesson Go",
-    "version": (1, 0),
+    "version": (0, 2, 1),
     "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Makes many duplicates of the selected object",
