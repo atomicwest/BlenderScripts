@@ -1,19 +1,14 @@
-'''
-run massmakerOperator.py first
-'''
-
 bl_info = {
     "name": "Mass Maker",
     "author": "Jesson Go",
     "version": (1, 0),
-    "blender": (2, 75, 0),
+    "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Makes many duplicates of the selected object",
     "warning": "",
     "wiki_url": "",
     "category": "RandMass",
     }
-
 
 import bpy
 import random
@@ -57,12 +52,12 @@ class ManyDuplicate(bpy.types.Operator):
             max=360.0,
             default=0.0
             )
-    rfS = FloatProperty(
+    rfS = IntProperty(
             name="Scale Factor",
             description="Scale",
-            min=0.0,
+            min=0,
             max=300,
-            default=1.0
+            default=1
             )
 
     #booleans
@@ -171,12 +166,6 @@ class ManyDuplicate(bpy.types.Operator):
             self.rfR,
             self.rfS,
             self.integersOnly
-            # copies,
-            # newName,
-            # rfL,
-            # rfR,
-            # rfS,
-            # integersOnly
             )
         return {'FINISHED'}
 
