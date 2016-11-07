@@ -21,7 +21,7 @@ import bpy
 import math
 import random
 
-# prepare a scene
+# set the timeline start and end points
 scn = bpy.context.scene
 scn.frame_start = 1
 scn.frame_end = 1200
