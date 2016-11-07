@@ -4,6 +4,7 @@
 
 Please visit my [blog][blog link] for more detailed discussions of my work.
 
+![alt text](https://github.com/atomicwest/BlenderScripts/tree/master/Other/Images/deathtroopers.png "Deathtroopers from Rogue One")
 
 ## Mass Maker Toolbox
 Set of tools developed mainly for handling hundreds of objects in my [Yavin-Hoth Hyperspace 360 VR][VR] project.
