@@ -4,7 +4,7 @@
 
 Please visit my [blog][blog link] for more detailed discussions of my work.
 
-![alt text](https://github.com/atomicwest/BlenderScripts/tree/master/Other/Images/deathtroopers.png "Deathtroopers from Rogue One")
+![Deathtroopers](/Other/Images/deathtroopers.png "Deathtroopers from Rogue One")
 
 ## Mass Maker Toolbox
 Set of tools developed mainly for handling hundreds of objects in my [Yavin-Hoth Hyperspace 360 VR][VR] project.
@@ -36,10 +36,10 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 
 [VR]: https://www.youtube.com/watch?v=thC53_FVSao
 [blog link]: https://atomicprime.wordpress.com
-[dupobj]: https://github.com/atomicwest/BlenderScripts/blob/master/MassMakerToolbox/standalone/duplicate_many_objects.py
-[matcher]: https://github.com/atomicwest/BlenderScripts/blob/master/MassMakerToolbox/standalone/duplicate_matching.py
-[asteroidAnim]: https://github.com/atomicwest/BlenderScripts/blob/master/MassMakerToolbox/standalone/asteroid_animate.py
-[saFolder]: https://github.com/atomicwest/BlenderScripts/tree/master/MassMakerToolbox/standalone
-[MDUI]: https://github.com/atomicwest/BlenderScripts/tree/master/MassMakerToolbox/DuplicationUI
-[MAUI]: https://github.com/atomicwest/BlenderScripts/tree/master/MassMakerToolbox/AnimationUI
+[dupobj]: /MassMakerToolbox/standalone/duplicate_many_objects.py
+[matcher]: /MassMakerToolbox/standalone/duplicate_matching.py
+[asteroidAnim]: /MassMakerToolbox/standalone/asteroid_animate.py
+[saFolder]: /MassMakerToolbox/standalone
+[MDUI]: /MassMakerToolbox/DuplicationUI
+[MAUI]: /MassMakerToolbox/AnimationUI
 [deathtrooper]: https://atomicprime.wordpress.com/2016/10/07/dynamic-linking-and-other-updates/
