@@ -25,9 +25,9 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
     bl_idname = "myops.massmake"
 ```
 
-* ###[Mass Selection][selectionUI]
+* ###[Mass Selection UI][selectionUI]
   * By default selects all objects in the scene, then selects all objects that match the "Duplicate Name" UI field
-  * 
+  
 * ###[Mass Animation][MAUI] 
   * Current versions do not work well as a UI, it is better to modify the standalone asteroid animation script and run directly for now.
 
