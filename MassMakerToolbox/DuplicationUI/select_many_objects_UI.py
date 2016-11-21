@@ -3,7 +3,7 @@
 bl_info = {
     "name": "Select Many",
     "author": "Jesson Go",
-    "version": (0, 1, 1),
+    "version": (0, 1, 2),
     "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Select many duplicates of the selected object",
