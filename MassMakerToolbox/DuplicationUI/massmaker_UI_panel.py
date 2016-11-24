@@ -180,7 +180,7 @@ class MassMakePanel(bpy.types.Panel):
     bl_idname = "OBJECT_PT_massmake"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'TOOLS'
-    bl_category = "RandMass"
+    bl_category = "MassMaker"
 
     #objects of type.Panel have sub objects of type layout
 
