@@ -1,13 +1,13 @@
 bl_info = {
     "name": "Mass Maker",
     "author": "Jesson Go",
-    "version": (0, 2, 1),
+    "version": (0, 3, 1),
     "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Makes many duplicates of the selected object",
     "warning": "",
     "wiki_url": "",
-    "category": "RandMass",
+    "category": "MassMaker",
     }
 
 import bpy
