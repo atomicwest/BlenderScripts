@@ -4,3 +4,16 @@ export PATH=$PATH:/path/to/dir
 
 blender common location
 /home/awjin/blender-2.77a-linux-glibc211-i686/
+
+----------------------
+
+ternary operator/conditional expression example
+
+>>> color = "Blue"
+>>> obiwan = False
+>>> color = "Green" if obiwan==False else color = "Blue"
+  File "<stdin>", line 1
+SyntaxError: can't assign to conditional expression
+>>> color = "Green" if obiwan==False else "Blue"
+>>> color
+'Green'
