@@ -1,0 +1,6 @@
+set path variable
+
+export PATH=$PATH:/path/to/dir
+
+blender common location
+/home/awjin/blender-2.77a-linux-glibc211-i686/
