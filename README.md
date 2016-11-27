@@ -28,7 +28,7 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 * ###[Mass Selection UI][selectionUI]
   * By default selects all objects in the scene, then selects all objects that match the "Duplicate Name" UI field
 
-![Dynamics](/Other/Images/dynamics_pythonscript.gif "Working demo of dynamics script")
+![Dynamics](/Other/Images/improved_dynamics.gif "Working demo of dynamics script")
 * ###[Add Dynamics to Many UI][adddyn]
   * After duplicating and selecting target objects, run this to add rigid body properties to target objects/add target objects to Blender's rigid body world. Current UI allows toggling Friction, Bounciness, and Collision Margin, but can be modified to address any other rigid body properties. 
   
