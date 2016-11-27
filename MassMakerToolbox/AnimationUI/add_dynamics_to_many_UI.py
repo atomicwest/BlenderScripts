@@ -3,13 +3,13 @@
 bl_info = {
     "name": "Many Dynamics",
     "author": "Jesson Go",
-    "version": (0, 1, 1),
+    "version": (0, 2, 1),
     "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > RandMass",
-    "description": "Adds Dynamics Properties to Selected Objects, works in tandem with Select Many",
+    "description": "Adds Dynamics Properties to Selected Objects, works in tandem with Select Many.",
     "warning": "",
     "wiki_url": "",
-    "category": "MassMaker",
+    "category": "MassMaker"
     }
 
 
@@ -17,40 +17,44 @@ import bpy
 from bpy.props import FloatProperty, BoolProperty
 
 class ManyDynamics(bpy.types.Operator):
+    """ Adds Dynamics to Selected Objects """
     bl_idname = "myops.manydynamics"
     bl_label = "Add Dynamics to Many"
     bl_options = {'REGISTER', 'UNDO'}
 
     active = BoolProperty(
             name="Active?",
-            default="True"
+            default=True
             )
 
     # d20 project = 0.915
     newFriction = FloatProperty(
             name="Friction",
-            default=0.0,
-            min=0.0
+            default=0.915,
+            min=0.0,
+            max=1.0
             )
 
     # d20 project = 0.946
     newBounce = FloatProperty(
             name="Bounciness",
-            default=0.0,
-            min=0.0
+            default=0.946,
+            min=0.0,
+            max=1.0
             )
 
     # d20 project = True
     collisionMargin = BoolProperty(
             name="Collision Margin?",
-            default=False
+            default=True
             )
 
     # d20 project = 0.039
     newMargin = FloatProperty(
             name="Margin",
-            default=0.0,
-            min=0.0
+            default=0.039,
+            min=0.0,
+            max=1.0
             )
 
     def dynamicAdder(object, active, newFriction, newBounce, collisionMargin, newMargin):
@@ -62,20 +66,22 @@ class ManyDynamics(bpy.types.Operator):
 
         for obj in all:
 
-            # if (match in obj.name):
-            #     bpy.data.objects[obj.name].select=True
-            if (bpy.data.objects[obj.name].select==True):
+            if (obj.select==True):
+                print(obj.name)
                 # bpy.ops.rigidbody.world_add()
                 bpy.ops.rigidbody.objects_add(type=actType)
                 print("-----------newFriction Debug------------")
-                print(newFriction[1])
+                print(newFriction)
+                # print(newFriction[1]["default"])
+                print(newBounce)
+                print(collisionMargin)
+                print(newMargin)
                 print("----------------------------------")
-                bpy.data.objects[obj.name].rigid_body.friction=newFriction
-                bpy.data.objects[obj.name].rigid_body.restitution=newBounce
-                bpy.data.objects[obj.name].rigid_body.use_margin=collisionMargin
-                bpy.data.objects[obj.name].rigid_body.collision_margin=newMargin
+                obj.rigid_body.friction=newFriction
+                obj.rigid_body.restitution=newBounce
+                obj.rigid_body.use_margin=collisionMargin
+                obj.rigid_body.collision_margin=newMargin
 
-            print(obj.name)
 
     @classmethod
     def poll(cls, context):
@@ -93,15 +99,13 @@ class ManyDynamics(bpy.types.Operator):
         return {'FINISHED'}
 
 
-        bl_category = "MassMaker"
-
-
 class ManyDynamicsPanel(bpy.types.Panel):
     """Toolbox"""
     bl_label = "Add Dynamics to Many"
     bl_idname = "OBJECT_PT_manydynamics"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'TOOLS'
+    bl_category = "MassMaker"
 
     #objects of type.Panel have sub objects of type layout
 
