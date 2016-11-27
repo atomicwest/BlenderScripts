@@ -27,9 +27,13 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 
 * ###[Mass Selection UI][selectionUI]
   * By default selects all objects in the scene, then selects all objects that match the "Duplicate Name" UI field
+
+* ###[Add Dynamics to Many][adddyn]
   
 * ###[Mass Animation][MAUI] 
-  * Current versions do not work well as a UI, it is better to modify the standalone asteroid animation script and run directly for now.
+  * Current versions of translation/rotation/scaling animation UI do not work well as a UI, it is better to modify the standalone asteroid animation script and run directly for now.
+
+
 
 * Old subfolder contains deprecated versions of scripts mentioned above.
   * E.g. dupobj_vent.py was used to create several vent plates for the [Deathtrooper][deathtrooper] helmet project.
@@ -49,4 +53,5 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [deathtrooper]: https://atomicprime.wordpress.com/2016/10/07/dynamic-linking-and-other-updates/
 [selection]: /MassMakerToolbox/standalone/select_many_objects.py
 [selectionUI]: /MassMakerToolbox/DuplicationUI/select_many_objects_UI.py
+[adddyn]: /MassMakerToolbox/AnimationUI/add_dynamics_to_many_UI.py
 
