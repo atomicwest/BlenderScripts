@@ -28,7 +28,9 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 * ###[Mass Selection UI][selectionUI]
   * By default selects all objects in the scene, then selects all objects that match the "Duplicate Name" UI field
 
-* ###[Add Dynamics to Many][adddyn]
+![Dynamics](/Other/Images/dynamics_pythonscript.gif "Working demo of dynamics script")
+* ###[Add Dynamics to Many UI][adddyn]
+  * After duplicating and selecting target objects, run this to add rigid body properties to target objects/add target objects to Blender's rigid body world. Current UI allows toggling Friction, Bounciness, and Collision Margin, but can be modified to address any other rigid body properties. 
   
 * ###[Mass Animation][MAUI] 
   * Current versions of translation/rotation/scaling animation UI do not work well as a UI, it is better to modify the standalone asteroid animation script and run directly for now.
