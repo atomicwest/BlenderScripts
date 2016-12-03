@@ -3,7 +3,7 @@
 bl_info = {
     "name": "Parent Many",
     "author": "Jesson Go",
-    "version": (0, 1, 1),
+    "version": (0, 2, 1),
     "blender": (2, 78, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Parents objects of a specific naming pattern to the currently selected object",
@@ -30,23 +30,18 @@ class ParentMany(bpy.types.Operator):
         #all = bpy.context.scene.objects
         allobj = bpy.data.objects
 
+        parentObj = bpy.context.scene.objects.active
+        #bpy.context.scene.cursor_location = parentObj.location
+        #bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+        #print(bpy.context.scene.cursor_location)
+        #print(parentObj.location)
+
         for obj in allobj:
+            if (cName in obj.name) & (parentObj.name != obj.name):
+                allobj[obj.name].select=True
+                bpy.ops.object.parent_set()
 
-            if allobj[obj.name].select==True:
-                parentObj = obj
-            elif (cName in obj.name) & (parentObj.name != obj.name):
-                obj.parent = parentObj
-
-            print(obj.name)
-            # bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
-        # parentObj = bpy.context.scene.objects.active
-        #
-        # for obj in allobj:
-        #
-        #     if (cName in obj.name) & (parentObj.name != obj.name):
-        #         obj.parent = parentObj
-        #         bpy.context.object.parent_set()
-        #         print(obj.name + "successfully parented")
+                print(obj.name + " successfully parented")
 
     @classmethod
     def poll(cls, context):
