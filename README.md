@@ -15,6 +15,8 @@ These include the asteroid field and hyperspace transition stars. The scripts ha
   * Duplicate Many Objects - [Script][dupobj] - Make copies of the selected mesh; the copies will fill 3D space in a spherically radial pattern, with randomized locations, rotations, and scaling based on three factors (rfL, rfR, rfS). The script can be easily edited for duplicating objects in specific patterns, e.g. an asteroid field.
   * Animate Many Objects - [Asteroid Field][asteroidAnim]: Current version hardcoded to duplicating "Asteroid"-named objects with a Z-axis limitation, simulating an accretion disk. See script comment for more details.
   * Duplicate Matching - [Script][matcher] - Duplicates the selected mesh and positions each object at the center of a target set of objects. E.g. if you wanted to make copies of hundreds of candles and automatically position each in the middle of hundreds of lanterns.
+  * Duplicate Floorboards
+  * Remove Frames From Many - [RemoveMany][remmany]: Remove key frames from objects and set frame for the freeze position
 
 * [Mass Duplication UI][MDUI]
   * The most recent version should be fixed for the float issue on randomizing scaling, but sometimes freezes on certain Blender setups, e.g. a machine with no GPU and 4GB of RAM.
@@ -61,6 +63,6 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [selectionUI]: /MassMakerToolbox/DuplicationUI/select_many_objects_UI.py
 [adddyn]: /MassMakerToolbox/AnimationUI/add_dynamics_to_many_UI.py
 [parentmanyUI]: /MassMakerToolbox/DuplicationUI/parent_many_objects_UI.py
-
+[remmany]: /MassMakerToolbox/standalone/remove_frames_from_many.py
 
 
