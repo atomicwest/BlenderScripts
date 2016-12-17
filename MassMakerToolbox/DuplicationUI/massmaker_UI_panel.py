@@ -1,8 +1,8 @@
 bl_info = {
     "name": "Mass Maker",
     "author": "Jesson Go",
-    "version": (0, 3, 1),
-    "blender": (2, 77, 0),
+    "version": (0, 3, 5),
+    "blender": (2, 78, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Makes many duplicates of the selected object",
     "warning": "",
@@ -68,7 +68,7 @@ class ManyDuplicate(bpy.types.Operator):
 
     #---------Actual code-----------------
 
-    def maker(classobj, copies, newName, rfL, rfR, rfS, integersOnly):
+    def maker(self, copies, newName, rfL, rfR, rfS, integersOnly):
         obj = bpy.context.object
         orig = bpy.context.object.data
         dupTemp = orig.copy()

@@ -26,7 +26,7 @@ class SelectMany(bpy.types.Operator):
             default=""
             )
 
-    def selector(object, match):
+    def selector(self, match):
         #all = bpy.context.scene.objects
         all = bpy.data.objects
 

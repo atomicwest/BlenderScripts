@@ -68,7 +68,7 @@ class ManyDynamics(bpy.types.Operator):
             name="Collision Shape"
         )
 
-    def dynamicAdder(object, active, newFriction, newBounce, collisionMargin, newMargin, collideShape):
+    def dynamicAdder(self, active, newFriction, newBounce, collisionMargin, newMargin, collideShape):
         #all = bpy.context.scene.objects
         all = bpy.data.objects
 

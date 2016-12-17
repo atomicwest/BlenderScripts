@@ -26,7 +26,7 @@ class ParentMany(bpy.types.Operator):
             default=""
             )
 
-    def parentobjs(object, cName):
+    def parentobjs(self, cName):
         #all = bpy.context.scene.objects
         allobj = bpy.data.objects
 
