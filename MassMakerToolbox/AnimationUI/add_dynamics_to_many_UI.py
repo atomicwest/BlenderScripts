@@ -56,9 +56,9 @@ class ManyDynamics(bpy.types.Operator):
             min=0.0,
             max=1.0
             )
-    
+
     collideShape = EnumProperty(
-            (("CONVEX_HULL","Convex Hull",'','CONVEX_HULL', 0),
+            items=(("CONVEX_HULL","Convex Hull",'','CONVEX_HULL', 0),
             ("MESH", "Mesh", '','MESH', 1),
             ("BOX","Box",'', 'BOX' ,2),
             ("SPHERE","Sphere",'', 'SPHERE', 3),
@@ -68,7 +68,7 @@ class ManyDynamics(bpy.types.Operator):
             name="Collision Shape"
         )
 
-    def dynamicAdder(object, active, newFriction, newBounce, collisionMargin, newMargin):
+    def dynamicAdder(object, active, newFriction, newBounce, collisionMargin, newMargin, collideShape):
         #all = bpy.context.scene.objects
         all = bpy.data.objects
 
@@ -92,8 +92,9 @@ class ManyDynamics(bpy.types.Operator):
                 obj.rigid_body.restitution=newBounce
                 obj.rigid_body.use_margin=collisionMargin
                 obj.rigid_body.collision_margin=newMargin
+                print("----------------------------------")
                 print(collideShape)
-                obj.rigid_body.rigid_body.collision_shape=collideShape
+                obj.rigid_body.collision_shape=collideShape
 
 
     @classmethod
@@ -107,7 +108,8 @@ class ManyDynamics(bpy.types.Operator):
             self.newFriction,
             self.newBounce,
             self.collisionMargin,
-            self.newMargin
+            self.newMargin,
+            self.collideShape
             )
         return {'FINISHED'}
 
@@ -141,7 +143,7 @@ class ManyDynamicsPanel(bpy.types.Panel):
 
         row = layout.row()
         row.prop(self, "newMargin")
-        
+
         row = layout.row()
         row.prop(self, "collideShape")
 
