@@ -3,8 +3,8 @@
 bl_info = {
     "name": "Many Dynamics",
     "author": "Jesson Go",
-    "version": (0, 2, 1),
-    "blender": (2, 77, 0),
+    "version": (0, 3, 1),
+    "blender": (2, 78, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Adds Dynamics Properties to Selected Objects, works in tandem with Select Many.",
     "warning": "",
@@ -14,7 +14,7 @@ bl_info = {
 
 
 import bpy
-from bpy.props import FloatProperty, BoolProperty
+from bpy.props import *
 
 class ManyDynamics(bpy.types.Operator):
     """ Adds Dynamics to Selected Objects """
@@ -56,6 +56,17 @@ class ManyDynamics(bpy.types.Operator):
             min=0.0,
             max=1.0
             )
+    
+    collideShape = EnumProperty(
+            (("CONVEX_HULL","Convex Hull",'','CONVEX_HULL', 0),
+            ("MESH", "Mesh", '','MESH', 1),
+            ("BOX","Box",'', 'BOX' ,2),
+            ("SPHERE","Sphere",'', 'SPHERE', 3),
+            ("CAPSULE","Capsule", '', 'CAPSULE',4),
+            ("CYLINDER","Cylinder", '', 'CYLINDER',5),
+            ("CONE", "Cone", '', 'CONE', 6)),
+            name="Collision Shape"
+        )
 
     def dynamicAdder(object, active, newFriction, newBounce, collisionMargin, newMargin):
         #all = bpy.context.scene.objects
@@ -81,6 +92,8 @@ class ManyDynamics(bpy.types.Operator):
                 obj.rigid_body.restitution=newBounce
                 obj.rigid_body.use_margin=collisionMargin
                 obj.rigid_body.collision_margin=newMargin
+                print(collideShape)
+                obj.rigid_body.rigid_body.collision_shape=collideShape
 
 
     @classmethod
@@ -128,6 +141,9 @@ class ManyDynamicsPanel(bpy.types.Panel):
 
         row = layout.row()
         row.prop(self, "newMargin")
+        
+        row = layout.row()
+        row.prop(self, "collideShape")
 
         row = layout.row()
         row.operator("myops.manydynamics")
