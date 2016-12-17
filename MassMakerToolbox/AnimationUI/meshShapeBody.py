@@ -13,7 +13,7 @@ class meshBodyShape(bpy.types.PropertyGroup):
         ("CONE", "Cone", '', 'CONE', 6)
         ]
     
-    meshadd = bpy.props.EnumProperty(
+    meshAdd = bpy.props.EnumProperty(
             items = options,
             default = "Convex Hull",
             update=execution
