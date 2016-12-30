@@ -38,7 +38,10 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
   * After duplicating and selecting target objects, run this to add rigid body properties to target objects/add target objects to Blender's rigid body world. Current UI allows toggling Friction, Bounciness, and Collision Margin, but can be modified to address any other rigid body properties. 
 
 ![Dynamics](/Other/Images/improved_dynamics.gif "Working demo of dynamics script")
-  
+
+* [Set All Origins to Center of Mass][centerall]
+  * Example use: If you start with a primitive then create separate pieces out of the primitive faces, the origin of each piece will still be the original primitive's origin. Run this script to set each pieces' origin to their center of mass. More information [here][allcenterlink]
+
 * [Mass Animation][MAUI] 
   * Current versions of translation/rotation/scaling animation UI do not work well as a UI, it is better to modify the standalone asteroid animation script and run directly for now.
 
@@ -64,5 +67,5 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [adddyn]: /MassMakerToolbox/AnimationUI/add_dynamics_to_many_UI.py
 [parentmanyUI]: /MassMakerToolbox/DuplicationUI/parent_many_objects_UI.py
 [remmany]: /MassMakerToolbox/standalone/remove_frames_from_many.py
-
-
+[centerall]: /MassMakerToolbox/DuplicationUI/origin_to_centerofmass.py
+[allcenterlink]: https://atomicprime.wordpress.com/2016/12/30/quick-python/

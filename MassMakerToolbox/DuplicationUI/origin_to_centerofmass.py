@@ -1,5 +1,3 @@
-#select
-
 bl_info = {
     "name": "All Origin to Center of Mass",
     "author": "Jesson Go",
@@ -22,14 +20,12 @@ class CenterMany(bpy.types.Operator):
     bl_options = {'REGISTER', 'UNDO'}
 
     def allcenter(self):
-        #all = bpy.context.scene.objects
         objects = bpy.data.objects
 
         for obj in objects:
-
-            # bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_MASS')
-            obj.origin_set(type='ORIGIN_CENTER_OF_MASS')
-
+            obj.select=True
+            bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_MASS')
+            obj.select=False
             print(obj.name)
 
     @classmethod
@@ -37,7 +33,6 @@ class CenterMany(bpy.types.Operator):
         return context.active_object is not None
 
     def execute(self, context):
-        # main(context)
         self.allcenter()
         return {'FINISHED'}
 
