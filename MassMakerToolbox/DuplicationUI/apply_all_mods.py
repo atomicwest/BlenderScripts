@@ -1,12 +1,10 @@
-#select
-
 bl_info = {
-    "name": "All Origin to Center of Mass",
+    "name": "Apply All Modifiers",
     "author": "Jesson Go",
     "version": (0, 1, 1),
     "blender": (2, 78, 0),
     "location": "View3D > Tool Shelf > RandMass",
-    "description": "Set origin of each object to its respective center of mass",
+    "description": "Apply mods from top of stack down",
     "warning": "",
     "wiki_url": "",
     "category": "MassMaker",
@@ -18,7 +16,7 @@ from bpy.props import *
 
 class ApplyAllMods(bpy.types.Operator):
     bl_idname = "myops.applymods"
-    bl_label = "Apply all mods on each mesh object"
+    bl_label = "Apply Mods"
     bl_options = {'REGISTER', 'UNDO'}
 
     def applymods(self):
@@ -26,7 +24,14 @@ class ApplyAllMods(bpy.types.Operator):
         objects = bpy.data.objects
 
         for obj in objects:
-            bpy.ops.object.modifier_apply(apply_as='DATA')
+
+            bpy.context.scene.objects.active = obj
+            mods = bpy.data.objects[obj.name].modifiers
+
+            for i in range(len(mods)):
+                mname = mods[i-1].name
+                bpy.ops.object.modifier_apply(apply_as='DATA', modifier=mname)
+
             print(obj.name)
 
     @classmethod
@@ -40,7 +45,7 @@ class ApplyAllMods(bpy.types.Operator):
 
 class ApplyAllModsPanel(bpy.types.Panel):
     """Toolbox"""
-    bl_label = "All Origin to Center of Mass"
+    bl_label = "Apply All Mods"
     bl_idname = "OBJECT_PT_applymods"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'TOOLS'
