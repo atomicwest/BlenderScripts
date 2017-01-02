@@ -1,9 +1,7 @@
-#select
-
 bl_info = {
     "name": "Parent Many",
     "author": "Jesson Go",
-    "version": (0, 2, 1),
+    "version": (0, 4, 1),
     "blender": (2, 78, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Parents objects of a specific naming pattern to the currently selected object",
@@ -23,7 +21,7 @@ class ParentMany(bpy.types.Operator):
 
     childrenName = StringProperty(
             name="Children Name Pattern",
-            default=""
+            default="None"
             )
 
     def parentobjs(self, cName):
@@ -31,10 +29,6 @@ class ParentMany(bpy.types.Operator):
         allobj = bpy.data.objects
 
         parentObj = bpy.context.scene.objects.active
-        #bpy.context.scene.cursor_location = parentObj.location
-        #bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
-        #print(bpy.context.scene.cursor_location)
-        #print(parentObj.location)
 
         for obj in allobj:
             if (cName in obj.name) & (parentObj.name != obj.name):
@@ -44,7 +38,7 @@ class ParentMany(bpy.types.Operator):
                 print(obj.name + " successfully parented")
 
     @classmethod
-    def poll(cls, context):
+    def poll(self, context):
         return context.active_object is not None
 
     def execute(self, context):
@@ -54,6 +48,25 @@ class ParentMany(bpy.types.Operator):
             )
         return {'FINISHED'}
 
+class UnparentAll(bpy.types.Operator):
+    bl_idname="myops.unparent"
+    bl_label="Unparent All"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    def unparentall(self):
+        allobj = bpy.data.objects
+
+        for obj in allobj:
+            allobj[obj.name].select=True
+            bpy.ops.object.parent_clear(type='CLEAR')
+
+    @classmethod
+    def poll(self, context):
+        return context.active_object is not None
+
+    def execute(self, context):
+        self.unparentall()
+        return {'FINISHED'}
 
 class ParentManyPanel(bpy.types.Panel):
     """Toolbox"""
@@ -79,15 +92,20 @@ class ParentManyPanel(bpy.types.Panel):
         row = layout.row()
         row.operator("myops.parentmany")
 
+        row = layout.row()
+        row.operator("myops.unparent")
+
 
 def register():
     bpy.utils.register_class(ParentManyPanel)
     bpy.utils.register_class(ParentMany)
+    bpy.utils.register_class(UnparentAll)
 
 
 def unregister():
     bpy.utils.unregister_class(ParentManyPanel)
     bpy.utils.unregister_class(ParentMany)
+    bpy.utils.unregister_class(UnparentAll)
 
 
 if __name__ == "__main__":
