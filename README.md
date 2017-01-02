@@ -39,6 +39,9 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 
 ![Dynamics](/Other/Images/improved_dynamics.gif "Working demo of dynamics script")
 
+* [Apply Modifiers][allmods]
+  * Choose between applying all modifiers beginning with the top of the stack downward, or specifying a modifier to be applied. Either way, the script will iterate through all objects in the scene and make the appropriate changes.
+
 * [Set All Origins to Center of Mass][centerall]
   * Example use: If you start with a primitive then create separate pieces out of the primitive faces, the origin of each piece will still be the original primitive's origin. Run this script to set each pieces' origin to their center of mass. More information [here][allcenterlink]
 
@@ -69,3 +72,7 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [remmany]: /MassMakerToolbox/standalone/remove_frames_from_many.py
 [centerall]: /MassMakerToolbox/DuplicationUI/origin_to_centerofmass.py
 [allcenterlink]: https://atomicprime.wordpress.com/2016/12/30/quick-python/
+[allmods]: /MassMakerToolbox/DuplicationUI/apply_all_mods.py
+
+
+
