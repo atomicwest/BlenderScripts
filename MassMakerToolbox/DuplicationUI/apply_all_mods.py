@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Apply All Modifiers",
     "author": "Jesson Go",
-    "version": (0, 1, 1),
+    "version": (0, 3, 1),
     "blender": (2, 78, 0),
     "location": "View3D > Tool Shelf > RandMass",
     "description": "Apply mods from top of stack down",
