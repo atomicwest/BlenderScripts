@@ -10,11 +10,12 @@ Please visit my [blog][blog link] for more detailed discussions of my work.
 Set of tools developed mainly for handling hundreds of objects in my [Yavin-Hoth Hyperspace 360 VR][VR] project.
 These include the asteroid field and hyperspace transition stars. The scripts have been tested for thousands of objects and can support as many as your hardware can handle, depending on the complexity and detail of your objects.
  
-* [Standalone][saFolder] - Run this scripts directly from the Blender editor for specific actions; these serve the same purpose as the two UI sections below.
+* [Standalone][saFolder] - Run these scripts directly from the Blender editor for specific actions; these serve the same purpose as the two UI sections below.
   * Select Many Objects - [Script][selection] - Selects all objects in the scene that have the same name scheme as entered in the UI field
   * Duplicate Many Objects - [Script][dupobj] - Make copies of the selected mesh; the copies will fill 3D space in a spherically radial pattern, with randomized locations, rotations, and scaling based on three factors (rfL, rfR, rfS). The script can be easily edited for duplicating objects in specific patterns, e.g. an asteroid field.
   * Animate Many Objects - [Asteroid Field][asteroidAnim]: Current version hardcoded to duplicating "Asteroid"-named objects with a Z-axis limitation, simulating an accretion disk. See script comment for more details.
   * Duplicate Matching - [Script][matcher] - Duplicates the selected mesh and positions each object at the center of a target set of objects. E.g. if you wanted to make copies of hundreds of candles and automatically position each in the middle of hundreds of lanterns.
+  * Swap Left-to-Right Naming - [Script][LtoR]: Intended for mesh objects that are mirrored across an axis of symmetry. This specifically targets a naming convention such as "legArmor\_L.001" or "legArmor\_L_001"
   * Duplicate Floorboards
   * Remove Frames From Many - [RemoveMany][remmany]: Remove key frames from objects and set frame for the freeze position
 
@@ -73,6 +74,6 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [centerall]: /MassMakerToolbox/DuplicationUI/origin_to_centerofmass.py
 [allcenterlink]: https://atomicprime.wordpress.com/2016/12/30/quick-python/
 [allmods]: /MassMakerToolbox/DuplicationUI/apply_all_mods.py
-
+[LtoR]: /MassMakerToolbox/standalone/swap_L-R_name.py
 
 
