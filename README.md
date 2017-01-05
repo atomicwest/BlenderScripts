@@ -11,6 +11,7 @@ Set of tools developed mainly for handling hundreds of objects in my [Yavin-Hoth
 These include the asteroid field and hyperspace transition stars. The scripts have been tested for thousands of objects and can support as many as your hardware can handle, depending on the complexity and detail of your objects.
  
 * [Standalone][saFolder] - Run these scripts directly from the Blender editor for specific actions; these serve the same purpose as the two UI sections below.
+  * Assign Textures - [Script][textures] - Assigns a material to objects based on the object name; e.g. all objects with "light" in their name will be assigned the "Limb-light" material.
   * Select Many Objects - [Script][selection] - Selects all objects in the scene that have the same name scheme as entered in the UI field
   * Duplicate Many Objects - [Script][dupobj] - Make copies of the selected mesh; the copies will fill 3D space in a spherically radial pattern, with randomized locations, rotations, and scaling based on three factors (rfL, rfR, rfS). The script can be easily edited for duplicating objects in specific patterns, e.g. an asteroid field.
   * Animate Many Objects - [Asteroid Field][asteroidAnim]: Current version hardcoded to duplicating "Asteroid"-named objects with a Z-axis limitation, simulating an accretion disk. See script comment for more details.
