@@ -11,8 +11,8 @@ Set of tools developed mainly for handling hundreds of objects in my [Yavin-Hoth
 These include the asteroid field and hyperspace transition stars. The scripts have been tested for thousands of objects and can support as many as your hardware can handle, depending on the complexity and detail of your objects.
  
 * [Standalone][saFolder] - Run these scripts directly from the Blender editor for specific actions; these serve the same purpose as the two UI sections below.
-  * Assign Textures - [Script][textures] - Assigns a material to objects based on the object name; e.g. all objects with "light" in their name will be assigned the "Limb-light" material.
   * Select Many Objects - [Script][selection] - Selects all objects in the scene that have the same name scheme as entered in the UI field
+  * Assign Textures - [Script][textures] - Assigns a material to objects based on the object name; e.g. all objects with "light" in their name will be assigned the "Limb-light" material. Can be generalized to match any criteria depending on existing textures.
   * Duplicate Many Objects - [Script][dupobj] - Make copies of the selected mesh; the copies will fill 3D space in a spherically radial pattern, with randomized locations, rotations, and scaling based on three factors (rfL, rfR, rfS). The script can be easily edited for duplicating objects in specific patterns, e.g. an asteroid field.
   * Animate Many Objects - [Asteroid Field][asteroidAnim]: Current version hardcoded to duplicating "Asteroid"-named objects with a Z-axis limitation, simulating an accretion disk. See script comment for more details.
   * Duplicate Matching - [Script][matcher] - Duplicates the selected mesh and positions each object at the center of a target set of objects. E.g. if you wanted to make copies of hundreds of candles and automatically position each in the middle of hundreds of lanterns.
@@ -56,6 +56,7 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 
 ## Other
 
+* [Select Inverse](/Other/select_inverse.py)
 * Sun and Sky Environment Link script from this [tutorial](https://www.youtube.com/watch?v=YXso7kNzxIU)
 
 [VR]: https://www.youtube.com/watch?v=thC53_FVSao
@@ -76,5 +77,5 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [allcenterlink]: https://atomicprime.wordpress.com/2016/12/30/quick-python/
 [allmods]: /MassMakerToolbox/DuplicationUI/apply_all_mods.py
 [LtoR]: /MassMakerToolbox/standalone/swap_L-R_name.py
-
+[textures]: /MassMakerToolbox/standalone/apply_texture.py
 
