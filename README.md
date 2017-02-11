@@ -57,6 +57,7 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 ## Other
 
 * [Select Inverse](/Other/select_inverse.py)
+* [Manual Render](/Other/manual_render.py) - Run with RenderMan or any renderer that does not respond to the "Render Animation" command correctly. RenderMan has its own pipeline and as of this writing, I have only managed to produce .exr files.
 * Sun and Sky Environment Link script from this [tutorial](https://www.youtube.com/watch?v=YXso7kNzxIU)
 
 [VR]: https://www.youtube.com/watch?v=thC53_FVSao
