@@ -50,6 +50,8 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 * [Mass Animation][MAUI] 
   * Current versions of translation/rotation/scaling animation UI do not work well as a UI, it is better to modify the standalone asteroid animation script and run directly for now.
 
+* [Rename Many][RMany] | [Standalone Version][RStand]
+  * Renames objects based on target and replacement naming patterns
 
 * Old subfolder contains deprecated versions of scripts mentioned above.
   * E.g. dupobj_vent.py was used to create several vent plates for the [Deathtrooper][deathtrooper] helmet project.
@@ -79,4 +81,7 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [allmods]: /MassMakerToolbox/DuplicationUI/apply_all_mods.py
 [LtoR]: /MassMakerToolbox/standalone/swap_L-R_name.py
 [textures]: /MassMakerToolbox/standalone/apply_texture.py
+[RMany]: /MassMakerToolbox/DuplicationUI/rename_many.py
+[RStand]: /MassMakerToolbox/standalone/rename_by_selection.py
+
 
