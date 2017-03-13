@@ -2,6 +2,9 @@
 select an mesh object that has children, and swap the naming convention
 to the opposite side; e.g. armor_leg_L swap to armor_leg_R
 can be edited to cover multiple naming schemes besides "_L"
+
+this is intended for renaming dozens of mesh objects that may be
+individually parented to joints for something like a robotic character
 '''
 
 import bpy
@@ -26,7 +29,10 @@ def swap(meshobj):
                 
         new = meshobj.name[0:start+1]
         new+="R" 
-    else:
+        
+        meshobj.name=new
+        
+    elif ("_R." in meshobj.name) | ("_R_" in meshobj.name):
         try:
             start = meshobj.name.index("_R.")
         except:
