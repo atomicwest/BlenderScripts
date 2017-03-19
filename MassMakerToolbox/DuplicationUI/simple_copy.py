@@ -1,10 +1,10 @@
 bl_info = {
-    "name": "Simple Copy",
+    "name": "Simpler Copy",
     "author": "Jesson Go",
-    "version": (0, 3, 5),
+    "version": (0, 1, 5),
     "blender": (2, 78, 0),
     "location": "View3D > Tool Shelf > RandMass",
-    "description": "Makes many duplicates of the selected object",
+    "description": "duplicate an object in one direction",
     "warning": "",
     "wiki_url": "",
     "category": "MassMaker",
@@ -16,10 +16,10 @@ import math
 from random import randint
 from bpy.props import IntProperty, StringProperty, FloatProperty, BoolProperty
 
-class ManyDuplicate(bpy.types.Operator):
-    """ Mass Produce the Current Object"""
-    bl_idname = "myops.massmake"
-    bl_label = "Make Many Copies"
+class SCopy(bpy.types.Operator):
+    """ Make many copies in one direction"""
+    bl_idname = "myops.scopy"
+    bl_label = "Make copies in one direction"
     bl_options = {'REGISTER', 'UNDO'}
 
     #---------Input fields----------------
@@ -36,15 +36,31 @@ class ManyDuplicate(bpy.types.Operator):
             default=""
             )
 
+    xLoc = BoolProperty(
+            name="X",
+            default=False
+            )
+
+    yLoc = BoolProperty(
+            name="Y",
+            default=False
+            )
+
+    zLoc = BoolProperty(
+            name="Z",
+            default=True
+            )
+
     '''
-    random factor Location, Rotation, and Scale
+    random factor Location and Rotation
     user determines how large of a range for
     random location placement for each duplicate
     '''
     rfL = FloatProperty(
-            name="Location Factor",
+            name="Distance Between Copies",
             default=0.0
             )
+            
     rfR = FloatProperty(
             name="Rotation Factor",
             description="Scale",
@@ -52,52 +68,29 @@ class ManyDuplicate(bpy.types.Operator):
             max=360.0,
             default=0.0
             )
-    rfS = IntProperty(
-            name="Scale Factor",
-            description="Scale",
-            min=0,
-            max=300,
-            default=1
-            )
-
-    #booleans
-    integersOnly = BoolProperty(
-            name="Use Only Integer Scaling?",
-            default=True
-            )
 
     #---------Actual code-----------------
 
-    def maker(self, copies, newName, rfL, rfR, rfS, integersOnly):
+    def maker(self, copies, newName, rfL, rfR, xLoc, yLoc, zLoc):
         obj = bpy.context.object
         orig = bpy.context.object.data
         dupTemp = orig.copy()
-
-        # user input textboxes
-        #copies = 0
-        #newName = ""
-
+        
         '''
         random factor Location, Rotation, and Scale
         user determines how large of a range for
         random location placement for each duplicate
         '''
-        #rfL = 0
-        #rfR = 0
-        #rfS = 1
-
-        #booleans
-        #integersOnly = True
-
-        #for randomizing signed floats
 
         def signed():
             return random.uniform(-1,1)
 
-        def genLoc(rfL,i):
-            newX = math.ceil(signed()*rfL + signed()*i)
-            newY = math.ceil(signed()*rfL + signed()*i)
-            newZ = math.ceil(signed()*rfL + signed()*i)
+        def genLoc(rfL,i, xLoc, yLoc, zLoc):
+            newX, newY, newZ = 0,0,0
+
+            if xLoc: newX = rfL * i
+            if yLoc: newY = rfL * i
+            if zLoc: newZ = rfL * i
 
             return (newX,newY,newZ)
 
@@ -118,7 +111,7 @@ class ManyDuplicate(bpy.types.Operator):
 
             dup = bpy.data.objects.new(newName, dupTemp)
 
-            dup.location = genLoc(rfL,i)
+            dup.location = genLoc(rfL,i, xLoc, yLoc, zLoc)
             dup.rotation_euler = genRot(rfR)
             dup.scale = (1,1,1)
 
@@ -139,25 +132,20 @@ class ManyDuplicate(bpy.types.Operator):
             self.newName,
             self.rfL,
             self.rfR,
-            self.rfS,
-            self.integersOnly
+            self.xLoc,
+            self.yLoc,
+            self.zLoc
             )
         return {'FINISHED'}
 
 
-    # def execute(self, context):
-    #     main(context)
-    #     return {'COMPLETED DUPLICATION'}
-
-class MassMakePanel(bpy.types.Panel):
+class SCopyPanel(bpy.types.Panel):
     """Toolbox"""
-    bl_label = "Make Many Duplicates"
-    bl_idname = "OBJECT_PT_massmake"
+    bl_label = "Copy object in one direction"
+    bl_idname = "OBJECT_PT_scopy"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'TOOLS'
     bl_category = "MassMaker"
-
-    #objects of type.Panel have sub objects of type layout
 
     def draw(self, context):
         layout = self.layout
@@ -182,23 +170,26 @@ class MassMakePanel(bpy.types.Panel):
         row.prop(self,'rfR')
 
         row = layout.row()
-        row.prop(self,'rfS')
+        row.prop(self,'xLoc')
 
         row = layout.row()
-        row.prop(self,'integersOnly')
+        row.prop(self,'yLoc')
 
         row = layout.row()
-        row.operator("myops.massmake")
+        row.prop(self,'zLoc')
+
+        row = layout.row()
+        row.operator("myops.scopy")
 
 
 def register():
-    bpy.utils.register_class(MassMakePanel)
-    bpy.utils.register_class(ManyDuplicate)
+    bpy.utils.register_class(SCopyPanel)
+    bpy.utils.register_class(SCopy)
 
 
 def unregister():
-    bpy.utils.unregister_class(MassMakePanel)
-    bpy.utils.unregister_class(ManyDuplicate)
+    bpy.utils.unregister_class(SCopyPanel)
+    bpy.utils.unregister_class(SCopy)
 
 
 if __name__ == "__main__":

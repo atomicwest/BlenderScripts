@@ -20,6 +20,10 @@ These include the asteroid field and hyperspace transition stars. The scripts ha
   * Duplicate Floorboards
   * Remove Frames From Many - [RemoveMany][remmany]: Remove key frames from objects and set frame for the freeze position
 
+* [Single Direction Duplication UI][SDUI]
+  * Duplicates an object along one vector with the same magnitude applied to all axes.
+  * You can modify the operator to take 3 separate values for each axis
+  
 * [Mass Duplication UI][MDUI]
   * The most recent version should be fixed for the float issue on randomizing scaling, but sometimes freezes on certain Blender setups, e.g. a machine with no GPU and 4GB of RAM.
   * Previous versions of the UI script may have a base class called View3dPanel, which I believe is deprecated - omit when applicable, defined like so:
@@ -69,6 +73,7 @@ class ManyDuplicate(View3dPanel, bpy.types.Operator):
 [asteroidAnim]: /MassMakerToolbox/standalone/asteroid_animate.py
 [saFolder]: /MassMakerToolbox/standalone
 [MDUI]: /MassMakerToolbox/DuplicationUI
+[SDUI]: /MassMakerToolbox/DuplicationUI/simple_copy.py
 [MAUI]: /MassMakerToolbox/AnimationUI
 [deathtrooper]: https://atomicprime.wordpress.com/2016/10/07/dynamic-linking-and-other-updates/
 [selection]: /MassMakerToolbox/standalone/select_many_objects.py
