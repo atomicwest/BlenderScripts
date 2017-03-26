@@ -88,17 +88,17 @@ class SCopy(bpy.types.Operator):
         def genLoc(rfL,i, xLoc, yLoc, zLoc):
             newX, newY, newZ = 0,0,0
 
-            if xLoc: newX = rfL * i
-            if yLoc: newY = rfL * i
-            if zLoc: newZ = rfL * i
+            if xLoc: newX = rfL * i + obj.location[0]
+            if yLoc: newY = rfL * i + obj.location[1]
+            if zLoc: newZ = rfL * i + obj.location[2]
 
             return (newX,newY,newZ)
 
         def genRot(rfR):
-
-            rotX = rfR*(random.uniform(-360,360)/360)
-            rotY = rfR*(random.uniform(-360,360)/360)
-            rotZ = rfR*(random.uniform(-360,360)/360)
+            startrot = obj.rotation_euler
+            rotX = rfR*(random.uniform(-360,360)/360) + startrot[0]
+            rotY = rfR*(random.uniform(-360,360)/360) + startrot[1]
+            rotZ = rfR*(random.uniform(-360,360)/360) + startrot[2]
 
             return (rotX, rotY, rotZ)
 
@@ -113,7 +113,7 @@ class SCopy(bpy.types.Operator):
 
             dup.location = genLoc(rfL,i, xLoc, yLoc, zLoc)
             dup.rotation_euler = genRot(rfR)
-            dup.scale = (1,1,1)
+            dup.scale = obj.scale
 
             scene = bpy.context.scene
             scene.objects.link(dup)
