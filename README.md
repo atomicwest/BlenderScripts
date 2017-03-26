@@ -23,6 +23,7 @@ These include the asteroid field and hyperspace transition stars. The scripts ha
 * [Single Direction Duplication UI][SDUI]
   * Duplicates an object along one vector with the same magnitude applied to all axes.
   * You can modify the operator to take 3 separate values for each axis
+  * This is very similar to the array modifier
   
 * [Mass Duplication UI][MDUI]
   * The most recent version should be fixed for the float issue on randomizing scaling, but sometimes freezes on certain Blender setups, e.g. a machine with no GPU and 4GB of RAM.
