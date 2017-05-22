@@ -4,7 +4,8 @@
 
 Please visit my [blog][blog link] for more detailed discussions of my work.
 
-![Deathtroopers](/Other/Images/deathtroopers.png "Deathtroopers from Rogue One")
+![TiePilot](/Other/Images/tiepilot_28min_render.png "Updated hyperspace VR")
+The above screenshot is from an updated VR video that is currently being rendered.
 
 ## Mass Maker Toolbox
 Set of tools developed mainly for handling hundreds of objects in my [Yavin-Hoth Hyperspace 360 VR][VR] project.
