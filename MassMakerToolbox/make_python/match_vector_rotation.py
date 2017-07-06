@@ -44,6 +44,6 @@ direction = b-a
 
 # use to_track_quat to align object to vector
 bpy.context.object.rotation_mode = 'QUATERNION'
-bpy.context.object.rotation_quaternion = direction.to_track_quat('X','Z')
-# bpy.context.object.rotation_quaternion = direction.to_track_quat('X','Y')
+bpy.context.object.rotation_quaternion = direction.to_track_quat('X','Y')
+# bpy.context.object.rotation_quaternion = direction.to_track_quat('X','Z')
 # bpy.context.object.rotation_quaternion = direction.to_track_quat('Z','Y')
