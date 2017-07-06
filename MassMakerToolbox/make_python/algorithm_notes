@@ -1,0 +1,25 @@
+
+====manual====
+- switch to edit mode 
+- select all faces
+- ?select main object to trace with polygon?
+- edge split on all faces of python
+- separate faces by loose parts
+==============
+
+- origin to center of mass on each face
+- for each face
+    - copy location of face
+    - isolate longest edge
+    - separate longest edge as direction vector
+    - longest edge is now selected
+    - set longest
+
+-iterate through faces again
+    - delete each face
+    
+- for each edge, assuming faces are all deleted
+    - make a duplicate of snake scale object
+    - match location of snake scale to face
+    - to_track_quat scale duplicate to durectuib vector
+    

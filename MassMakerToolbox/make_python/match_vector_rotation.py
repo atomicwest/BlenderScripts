@@ -9,6 +9,11 @@ target is the object that will copy the location and rotation of vec
 originally built to create scales along a cylinder object to imitate
 a snake
 
+the problem is that the faces of a mesh are not always consistent; 
+i.e. the index of each face can change, deleting or separating another
+can result in the indices of each face changing.
+
+
 '''
 
 import bpy
