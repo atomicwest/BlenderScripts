@@ -3,8 +3,6 @@ given hundreds or thousands of objects with the same name scheme,
 make one object visible for each frame
 keyframe both render and 3d view so that the animation can be previewed
 
-right click on the camera/render restrict icon in the outline
-click add to keying set 
 '''
 
 import bpy
