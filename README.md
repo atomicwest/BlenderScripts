@@ -5,14 +5,14 @@
 Please visit my [blog][blog link] for more detailed discussions of my work.
 
 ![TiePilot](/Other/Images/tiepilot_28min_render.png "Updated hyperspace VR")
-The above screenshot is from an updated VR video that is currently being rendered.
+The above screenshot is from an updated VR video that can be found [here](https://youtu.be/8tERF6HdVSk).
 
 ## [Vector Matching][vectormatch]
 Tools used for orienting individual mesh objects into the shape of an existing mesh and then keying a specific data path (such as render restrictions).
   * break a model into its individual faces
   * determine the longest edge of each face and create a directional vector from that edge
   * copy a specified object and orient in the direction of that vector
-  * current version depends on iteration and runs in O(n^2) time, a more efficient version will be made later
+  * current version depends on iteration and runs in O(n^2) time, a more efficient version will be attempted later
   * see the [working scripts](/MakePython\(vector_matching\)/working_scripts/) for keyframe and renumbering automation
   * example, using jewel objects to trace a snake mesh:
   ![GlassPython](/MakePython\(vector_matching\)/working_scripts/img/glow_light_python_glass.png)
