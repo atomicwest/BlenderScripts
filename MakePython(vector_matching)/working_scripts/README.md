@@ -10,6 +10,6 @@ sampling/faster render)
 ![Glowpython](img/glow_light_python_glass.png)
 
 Run scripts in this order:
-1. MAIN_loop_faces.py   (change match and copy_template variables)
-2. renumber_by_distance.py  (change target and axis variables)
-3. keyframe_trace.py    (change target variable)
+1. MAIN_loop_faces.py   (change match and copy_template variables) Dismantles the mesh and orients copied objects along vectors
+2. renumber_by_distance.py  (change target and axis variables) Renumber your target objects according to their position on the specified axis.
+3. keyframe_trace.py    (change target variable) Make your objects invisible then sequentiall visible (1 object per frame)

@@ -23,7 +23,7 @@ class SelectMany(bpy.types.Operator):
 
     findName = StringProperty(
             name="Duplicate Name",
-            default=""
+            default=" "
             )
 
     def selector(self, match):
