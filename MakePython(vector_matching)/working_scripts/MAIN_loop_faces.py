@@ -1,5 +1,3 @@
-#assuming that all the faces of the object are already separated
-
 import bpy
 import bmesh
 import inspect 
@@ -38,6 +36,23 @@ def copy_match(target, edge, axis):
     bpy.ops.object.select_all(action='TOGGLE')
 
 #--------------main---------------------------
+
+#----------split base mesh first--------------
+base_mesh = bpy.context.object.data
+
+bpy.ops.object.mode_set(mode = 'EDIT')
+bpy.ops.mesh.select_all(action='TOGGLE')
+
+bpy.ops.mesh.edge_split()
+
+# bpy.ops.wm.call_menu(name="INFO_MT_window")
+bpy.ops.mesh.select_all(action='TOGGLE')
+
+bpy.ops.mesh.separate(type='LOOSE')
+
+bpy.ops.object.mode_set(mode = 'OBJECT')
+
+#---------now iterate through faces----------
 allobj = bpy.data.objects
 
 copyobj = bpy.data.objects[copy_template]
@@ -69,6 +84,7 @@ for f in allobj:
         
         bm.to_mesh(active_obj)      #this is important for updating the mesh
         
+        #------find edges-------------
         for e in bm.edges:
             if e.calc_length() > long_edge.calc_length():
                 bpy.ops.object.mode_set(mode = 'EDIT')
@@ -91,11 +107,8 @@ for f in allobj:
         
         bpy.ops.object.delete() #delete the face to reduce memory load on scene
         bm.free()
-        
-        # get directional vector copy the object here
-        # copy_match(copyobj,dup ,'x')
 
-# rename all the edges
+# rename all the edges; this will also help matching a scale object to an edge
 ecount = 0
 for e in allobj:
     if match in  e.name:
@@ -111,7 +124,7 @@ for i in range(ecount-1):
 
 bpy.ops.object.select_all(action='TOGGLE')
 
-#find all copies and orient
+#find all copies and orient each copy to the directional vector
 ecount = 0      #reuse variable
 for cp in allobj:
     if copy_template in cp.name:
